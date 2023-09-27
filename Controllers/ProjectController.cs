@@ -4,6 +4,7 @@ using minimo.Models;
 using minimo.Services;
 using System.Threading.Tasks;
 using minimo.dtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace minimo.Controllers
 {
@@ -12,10 +13,12 @@ namespace minimo.Controllers
     public class ProjectController : ControllerBase
     {
         private readonly ProjectService _projectService;
+        private readonly ProjectProgressService _progressService;
 
-        public ProjectController(ProjectService projectService)
+        public ProjectController(ProjectService projectService, ProjectProgressService progressService)
         {
             _projectService = projectService;
+            _progressService = progressService;
         }
 
         [HttpPost]
@@ -86,6 +89,37 @@ namespace minimo.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpGet("timelineAndProgress")]
+        public async Task<IActionResult> GetProjectTimelineAndProgress(int projectId)
+        {
+            //Calculate Project ratio
+            var progressRatio = _progressService.CalculateProgressRatio(projectId);
+            //Get the Project by id
+            var project = await _projectService.GetProjectByID(projectId);
+            if (project != null)
+            {
+                var projectDetails = new
+                {
+                    project.Name,
+                    project.startdate,
+                    project.enddate
+                };
+                var timelineProgressDto = new ProjectTimelineProgressdto
+                {
+                    ProjectId = projectId,
+                    ProjectName = projectDetails.Name,
+                    StartDate = (DateTime)projectDetails.startdate,
+                    EndDate = projectDetails.enddate,
+                    ProgressRatio = progressRatio
+                };
+                return Ok(timelineProgressDto);
+            }
+            else
+            {
+                return NotFound("Project not found");
             }
         }
     }
