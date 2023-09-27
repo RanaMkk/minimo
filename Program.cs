@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 //Adding services
 builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<TaskService>();
-
+builder.Services.AddScoped<ProjectProgressService>();
 
 var app = builder.Build();
 
