@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using minimo.Context;
+using minimo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors();
 builder.Services.AddSwaggerGen();
+//Adding services
+builder.Services.AddScoped<ProjectService>();
+builder.Services.AddScoped<TaskService>();
+
 
 var app = builder.Build();
 
