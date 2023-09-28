@@ -23,23 +23,11 @@ Within each project, tasks can be:
 
 Tasks include properties such as titles, descriptions, due dates, priorities, and statuses.
 
-### 3. Task Assignment
-
-Tasks can be assigned to one or more team members, allowing for clear responsibility assignment.
-
-### 4. Comments and Attachments
-
-Users can discuss tasks through comments and attach relevant files to tasks, promoting effective communication and documentation.
-
-### 5. Reminders
-
-Users can set task reminders to stay on top of critical deadlines and commitments.
-
-### 6. Project Notes
+### 3. Project Notes
 
 Project-specific notes can be added to provide context and important information.
 
-### 7. Search and Filtering
+### 4. Search and Filtering
 
 Efficient search and filtering capabilities enable users to quickly locate projects and tasks.
 
@@ -52,6 +40,47 @@ To get started, make sure to install the following packages:
 3. Microsoft.EntityFrameworkCore.SqlServer
 4. Microsoft.EntityFrameworkCore.Tools
 
+## How to Run the Project Locally
+
+To run Minimo on your local machine, follow these steps:
+
+### Prerequisites
+
+- Install .NET 6 SDK (https://dotnet.microsoft.com/download/dotnet/6.0)
+- Install Visual Studio or Visual Studio Code (optional but recommended)
+
+### Clone the Repository
+
+Clone the Minimo repository to your local machine using Git:
+
+```
+git clone https://github.com/your-username/minimo.git
+```
+
+### Configure the Database
+
+Open the `appsettings.json` file in the project and update the database connection string as needed.
+
+### Migrate the Database
+
+Run the following commands in the project directory to create and apply migrations to the database:
+
+```
+dotnet ef migrations add InitialMigration
+dotnet ef database update
+```
+
+### Build and Run the Application
+
+Use the following commands to build and run the application:
+
+```
+dotnet build
+dotnet run
+```
+
+The application should now be running locally at `https://localhost:5001`.
+
 ## Project Sections
 
 The project is divided into several sections:
@@ -63,18 +92,11 @@ The project is divided into several sections:
 
 ## Future Implementations
 
-In the future, we plan to implement:
+**In the future, we plan to implement:**
 
-1. **User Authentication and Authorization:** Users can register, log in, and manage their profiles. Authentication ensures secure access to the API.
-
-## To-Do Soon
-
-We have plans to add the following features soon:
-
-1. User authentication and authorization
-2. Project comments
-3. Project attachments
-4. User interface
+1. User authentication and authorization.
+2. Project comments.
+3. Project attachments.
+4. User interface improvements.
 
 Feel free to contribute and stay tuned for more updates!
-
