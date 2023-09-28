@@ -65,4 +65,16 @@ The project is divided into several sections:
 
 In the future, we plan to implement:
 
-1. **User Management:** Users can register, log in, and manage their profiles. Authentication ensures secure access to the API.
+1. **User Authentication and Authorization:** Users can register, log in, and manage their profiles. Authentication ensures secure access to the API.
+
+## To-Do Soon
+
+We have plans to add the following features soon:
+
+1. User authentication and authorization
+2. Project comments
+3. Project attachments
+4. User interface
+
+Feel free to contribute and stay tuned for more updates!
+
