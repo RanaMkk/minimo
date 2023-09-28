@@ -16,6 +16,7 @@ builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<TaskService>();
 builder.Services.AddScoped<ProjectProgressService>();
 builder.Services.AddScoped<NoteService>();
+builder.Services.AddScoped<ISearchService, SearchService>();
 
 var app = builder.Build();
 

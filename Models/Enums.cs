@@ -4,12 +4,12 @@
     {
         public enum Status
         {
-            initiated,
-            InProgress,
-            Completed,
-            Paused,
-            Declined,
-            Postponed
+            initiated = 1,
+            InProgress = 2,
+            Completed = 3,
+            Paused = 4,
+            Declined = 5,
+            Postponed = 6
         }
         public enum Priority
         {

@@ -11,7 +11,8 @@ namespace minimo.Models
         //The Id of the Owner who created the project
         public int UserId { get; set; }
         public Status Status { get; set; }
-        public Note[]? Notes { get; set; }
-        public Task[]? Tasks { get; set; }
+        // Use List<Task> instead of Task[]
+        public List<Note>? Notes { get; set; }
+        public List<Models.Task>? Tasks { get; set; }
     }
 }
